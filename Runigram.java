@@ -84,33 +84,33 @@ public class Runigram {
 	 * Returns an image which is the horizontally flipped version of the given image. 
 	 */
 	public static Color[][] flippedHorizontally(Color[][] image) {
-		int row = image[0].length;
-		int colom = image.length;
-		Color[][] horizimage = new Color[row][colom];
-		for (int i =0; i<row; i++){
-			for (int j=0; j<colom; j++){
-				 horizimage[i][j] = image[i][image[0].length-1-j];
-	}
-}
-return horizimage;
-
+		Color[][] horizimg = new Color[image.length][image[0].length];
+        for (int i = 0; i < image.length; i++) 
+        {
+            for (int j = 0; j < image[0].length/2; j++) 
+            {
+                Color temp= image[i][j];
+                horizimg[i][j]=image[i][image[0].length-1-j];
+                horizimg[i][image[0].length-1-j]=temp;
+            }
+        }
+        return horizimg;
 	}
 	
 	/**
 	 * Returns an image which is the vertically flipped version of the given image. 
 	 */
 	public static Color[][] flippedVertically(Color[][] image){
-		int row = image[0].length;
-		int colom = image.length;
-		Color[][] vertimage = new Color[row][colom];
-		for (int j=0; j<colom; j++){
-			for (int i =0; i<row; i++){
-				vertimage[i][j] = image[colom-1-i][j];
-
-		
-	}
-}
-return vertimage;
+		Color[][] vertimg = new Color[image.length][image[0].length];
+        int n= image.length;
+        for (int i = 0; i < flippedV.length; i++)
+         {
+            for (int j = 0; j < flippedV[0].length; j++) 
+            {
+                vertimg[i][j] = image[n-i-1][j];
+            }
+        }
+    return vertimg;
 	}
 	// Computes the luminance of the RGB values of the given pixel, using the formula 
 	// lum = 0.299 * r + 0.587 * g + 0.114 * b, and returns a Color object consisting
